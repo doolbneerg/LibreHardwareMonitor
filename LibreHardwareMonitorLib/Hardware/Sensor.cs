@@ -44,6 +44,8 @@ internal class Sensor : ISensor
         ISettings settings,
         bool disableHistory = false)
     {
+        disableHistory |= settings.GetValue("DisableSensorHistory", "false").ToLowerInvariant() != "false";
+
         Index = index;
         IsDefaultHidden = defaultHidden;
         SensorType = sensorType;
