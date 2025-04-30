@@ -52,8 +52,12 @@ public sealed class NVMeGeneric : AbstractStorage
             AddSensor("Percentage Used", 3, false, SensorType.Level, health => health.PercentageUsed);
             AddSensor("Data Read", 4, false, SensorType.Data, health => UnitsToData(health.DataUnitRead));
             AddSensor("Data Written", 5, false, SensorType.Data, health => UnitsToData(health.DataUnitWritten));
+            AddSensor("Error Info Log Entries", 6, false, SensorType.Factor, health => health.ErrorInfoLogEntryCount);
+            AddSensor("Media Errors", 7, false, SensorType.Factor, health => health.MediaErrors);
+            AddSensor("Power Cycles", 8, false, SensorType.Factor, health => health.PowerCycle);
+            AddSensor("Unsafe Shutdowns", 9, false, SensorType.Factor, health => health.UnsafeShutdowns);
 
-            int sensorIdx = 6;
+            int sensorIdx = 10;
             for (int i = 0; i < log.TemperatureSensors.Length; i++)
             {
                 int idx = i;
